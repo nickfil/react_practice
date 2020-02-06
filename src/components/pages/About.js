@@ -9,7 +9,8 @@ function About() {
                                                         style={{color: 'blue', textDecoration: 'underline'}} 
                                                         href="https://www.youtube.com/watch?v=sBws8MSXN7A"
                                                         title="React JS Crash Course"
-                                                        target="_blank">here</a></p>
+                                                        target="_blank"
+                                                        rel="noopener noreferrer">here</a></p>
         </React.Fragment>
     )
 }
