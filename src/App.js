@@ -4,6 +4,7 @@ import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import About from './components/pages/About'; 
+import TicTacToe from './components/pages/TicTacToe';
 import axios from 'axios';
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
             </React.Fragment>
           )} />
           <Route path='/about' component={About} />
+          <Route path='/tic-tac-toe' component={TicTacToe}/>
         </div>
       </div>
     </Router>
