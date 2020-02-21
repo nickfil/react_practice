@@ -63,7 +63,7 @@ class Square extends React.Component {
   
     render() {
       const winner = calculateWinner(this.state.squares);
-      var playerTextStyle = {fontSize:'24px'};
+      var playerTextStyle = {fontSize:'24px', margin:'10px 0 20px 0'};
       
       let status;
       if(winner){
@@ -100,16 +100,38 @@ class Square extends React.Component {
   }
   
   class Game extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        player1: null,
+        player2: null,
+      }
+    }
+
     render() {
       return (
           <Router>
             <Route exact path='/tic-tac-toe' render={props => (
                 <React.Fragment>
-                  <div className="leftContainer" style={{float:'left', width:'300px'}}>
-                    <div className="p1" style={{float: 'left', paddingTop:'30px'}}>Give the names of the two players:</div>
-                    <div>Hi</div>
+                  <div className="totalBodyContainer" style={{width:'100%'}}>
+                  <div className="leftContainer" style={{float:'left', width:'300px', position:'relative'}}>
+                    <div className="p1" style={{padding:'60px 0 20px 0', textAlign:'left'}}>Give the names of the two players:</div>
+                    <form style={formStyle}>
+                      <label>
+                        Player 1:
+                        <input style={inputStyle} type="text" name="name" />
+                      </label>
+                      <input style={submitButtonStyle} type="submit" value="Submit" />
+                    </form>
+                    <form style={formStyle}>
+                      <label>
+                        Player 2:
+                        <input style={inputStyle} type="text" name="name" />
+                      </label>
+                      <input style={submitButtonStyle} /*onClick={() => this.setState{}}*/type="submit" value="Submit" />
+                    </form>
                   </div>
-                  <div className="game" style={{textAlign:'center', width:'300px', margin:'auto'}}>
+                  <div className="game" style={{textAlign:'center', width:'300px', position:'relative', float:'left'}}>
                   <div className="game-board">
                       <Board />
                   </div>
@@ -118,7 +140,16 @@ class Square extends React.Component {
                       <ol>{/* TODO */}</ol>
                   </div>
                   </div>
-                  <div style={{float:'right', width:'300px'}}> Game Info: </div>
+                  <div className="rightContainer" style={{float:'left', width:'300px', textAlign:'left', margin:'60px 0 0 20px', textDecoration:'underline'}}>
+                  <h3>Game Info:</h3>
+                    <ul style={{float:'left',width:'300px', marginLeft:'30px'}}>
+                      <li>Take turns</li>
+                      <li>Click on a cell to play</li>
+                      <li>You can only undo your last move</li>
+                      <li>Clear will reset the whole game</li>
+                    </ul>
+                  </div>
+                </div>
                 </React.Fragment>
             )}/>
         </Router>
@@ -157,6 +188,19 @@ class Square extends React.Component {
   }
 
     // ========================================
+    // ========================================
+    // ======================================== 
+
+  const formStyle = {
+    textAlign: 'left',
+    width: '100%',
+  }
+  const inputStyle = {
+    margin: '10px 5px 0 5px',
+    borderRadius: '5px',
+    height: '22px',
+    outline: 'none',
+  }
 
   const squareStyle = {
     background: '#fff',
@@ -187,6 +231,19 @@ class Square extends React.Component {
     marginBottom: '10px',
     height:'35px', 
     width:'100px',
+    borderRadius: '10px',
+    background: '#333',
+    color: 'white',
+    outline: 'none',
+    cursor: 'pointer'
+  }
+
+  const submitButtonStyle = {
+    fontSize: '12px',
+    marginTop:'10px',
+    marginBottom: '10px',
+    height:'22px', 
+    width:'70px',
     borderRadius: '10px',
     background: '#333',
     color: 'white',

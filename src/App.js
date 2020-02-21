@@ -52,7 +52,7 @@ class App extends Component {
             <React.Fragment>
               <AddTodo addTodo={this.addTodo}/>
               <Todos todos={this.state.todos} markComplete={this.markComplete} deleteItem={this.deleteItem}></Todos>
-            </React.Fragment>
+              </React.Fragment>
           )} />
           <Route path='/about' component={About} />
           <Route path='/tic-tac-toe' component={TicTacToe}/>
